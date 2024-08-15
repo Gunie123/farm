@@ -1,76 +1,68 @@
 #include <string>
-#include <soil.h>
-#include <market.h>
+#include<soil.h>
+#include<market.h>
 using namespace std;
 
-class Crop
-{
-protected:
-    string name;                  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    double yield = 0;             // ï¿½Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½
-    int growthTime = 0;           // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
-    int growthPeriod;             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    double irrigationRequirement; // È±Ë®ï¿½ï¿½
-    double fertilizerRequirement; // È±ï¿½ï¿½ï¿½ï¿½
-    bool harvest = 0;             // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
-    int life = 100;               // ï¿½ï¿½ï¿½ï¿½Öµ
-    int buy_in_price;             // ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
-    double marketValue;           // ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
+class Crop {
+protected: 
+    string name;      //×÷ÎïÃû³Æ
+    double yield = 0;     //ÊÕ¸îÊýÁ¿
+    int growthTime = 0;    //Éú³¤Ê±¼ä
+    int growthPeriod;     //Éú³¤ÖÜÆÚ
+    double irrigationRequirement;  //È±Ë®Á¿
+    double fertilizerRequirement;   //È±·ÊÁ¿
+    bool harvest = 0;   //ÊÇ·ñ³ÉÊì
+    int life = 100;   //ÉúÃüÖµ
+    int buy_in_price;  //¹ºÈë¼Û¸ñ
+    double marketValue;   //ÊÐ³¡Âô³ö¼Û¸ñ
 public:
     Crop();
     virtual ~Crop() = default;
 
-    // ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    string getName() const
-    {
+    //»ñµÃÏàÓ¦±äÁ¿µÄÄÚÈÝ
+    string getName() const {  
         return name;
     }
 
-    double getYield() const
-    {
+    double getYield() const {
         return yield;
     }
 
-    int getGrowthTime() const
-    {
+    int getGrowthTime() const{
         return growthTime;
     }
 
-    int getGrowthPeriod() const
-    {
+    int getGrowthPeriod() const{
         return growthPeriod;
     }
 
-    double getMarketValue() const
-    {
+    double getMarketValue() const{
         return marketValue;
     }
 
-    double getIrrigationRequirement() const
-    {
+    double getIrrigationRequirement() const{
         return irrigationRequirement;
     }
 
-    double getFertilizerRequirement() const
-    {
+    double getFertilizerRequirement() const{
         return fertilizerRequirement;
     }
 
-    virtual bool judge_if_harvest() = 0; // ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
+    virtual bool judge_if_harvest() = 0;   //ÅÐ¶ÏÊÇ·ñ³ÉÊì
 
-    virtual bool judge_if_life() = 0; // ï¿½Ð¶ï¿½ï¿½Ç·ñ»¹»ï¿½ï¿½ï¿½
-
-    virtual bool influenceall(const Soil &soil, const Market &market) = 0; // Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+    virtual bool judge_if_life() = 0;      //ÅÐ¶ÏÊÇ·ñ»¹»î×Å
+    
+    virtual bool influenceall(const Soil& soil,const Market& market) = 0;    //Í¨¹ýÍÁÈÀºÍÊÐ³¡µÄÐÅÏ¢¸ü¸Ä×÷ÎïÏàÓ¦±äÁ¿µÄÖµ
 };
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
-class Corn : public Crop
-{
+// ¾ßÌåµÄÅÉÉúÀàÊ¾Àý
+class Corn : public Crop {
 public:
     Corn();
     ~Corn();
+    
+    bool judge_if_harvest() override;  
 
-    bool judge_if_harvest() override;
-
-    bool influenceall(const Soil &soil, const Market &market);
+    bool influenceall(const Soil& soil, const Market& market);
 };
+

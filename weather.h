@@ -1,31 +1,28 @@
 #include <string>
 using namespace std;
 
-class weather
-{
+class weather {
 protected:
-    string name;                          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    int ihumidity;                        // Êªï¿½ï¿½Ó°ï¿½ï¿½
-    int ifertility;                       // ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½
-    int ipesticideResidue;                // Å©Ò©ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½
-    int itemperature;                     // ï¿½Â¶ï¿½Ó°ï¿½ï¿½
-    virtual int influence_humidity() = 0; // ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+    string name;  //ÌìÆøÃû×Ö
+    int ihumidity;   //Êª¶ÈÓ°Ïì
+    int ifertility;  //·ÊÁÏÓ°Ïì
+    int ipesticideResidue;  //Å©Ò©²ĞÁôÓ°Ïì
+    int itemperature; //ÎÂ¶ÈÓ°Ïì
+    virtual int influence_humidity() = 0;    //Éè¶¨Ïà¹ØÊıÖµ
     virtual int influence_fertility() = 0;
     virtual int influence_temperature() = 0;
     virtual int influence_pesticideResidue() = 0;
-
 public:
-    weather(const string &name) : name(name) {}
+    weather(const string& name) : name(name) {}
     string getName() const { return name; }
 };
 
-class SunnyWeather : public weather
-{
+class SunnyWeather : public weather {
 public:
     SunnyWeather() : weather("Sunny Weather") {}
     int influence_humidity()
     {
-        // Ê¾ï¿½ï¿½
+        //Ê¾Àı
         ihumidity = -1;
         return ihumidity;
     }
@@ -34,8 +31,7 @@ public:
     int influence_pesticideResidue();
 };
 
-class RainyWeather : public weather
-{
+class RainyWeather : public weather {
 public:
     RainyWeather() : weather("Rainy Weather") {}
     int influence_humidity();
@@ -44,8 +40,7 @@ public:
     int influence_pesticideResidue();
 };
 
-class SnowyWeather : public weather
-{
+class SnowyWeather : public weather {
 public:
     SnowyWeather() : weather("Snowy Weather") {}
     int influence_humidity();
@@ -54,8 +49,7 @@ public:
     int influence_pesticideResidue();
 };
 
-class WindyWeather : public weather
-{
+class WindyWeather : public weather {
 public:
     WindyWeather() : weather("Windy Weather") {}
     int influence_humidity();
@@ -63,3 +57,5 @@ public:
     int influence_soilPermeability();
     int influence_pesticideResidue();
 };
+
+

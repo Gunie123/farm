@@ -1,29 +1,28 @@
 #include <string>
 #include <map>
-#include <string>
+#include<string>
 using namespace std;
 
-class Market
-{
+class Market {
 
 private:
-    // ï¿½æ´¢ï¿½ï¿½Í¬Å©ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Ð³ï¿½ï¿½Û¸ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½ï¿½ï¿½ÎªÖµ
+    // ´æ´¢²»Í¬Å©³¡Æ·µÄÊÐ³¡¼Û¸ñ£¬Ê¹ÓÃÃû×Ö×÷Îª¼ü£¬¼Û¸ñ×÷ÎªÖµ
     map<string, float> inprices;
     map<string, float> outprices;
 
 public:
-    // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ð³ï¿½ï¿½Û¸ï¿½
+    //³õÊ¼»¯ÊÐ³¡¼Û¸ñ
     Market();
 
-    // ï¿½ï¿½È¡Å©ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
-    float getinPrice(const string &item) const;
+    // »ñÈ¡Å©³¡Æ·µÄÂòÈë¼Û¸ñ
+    float getinPrice(const string& item) const;
 
-    // ï¿½Ä±ï¿½Å©ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
-    void setinPrice(const string &item, float price);
+    // ¸Ä±äÅ©³¡Æ·µÄÂòÈë¼Û¸ñ
+    void setinPrice(const string& item, float price);
 
-    // ï¿½ï¿½È¡Å©ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
-    float getoutPrice(const string &item) const;
+    // »ñÈ¡Å©³¡Æ·µÄÂô³ö¼Û¸ñ
+    float getoutPrice(const string& item) const;
 
-    // ï¿½Ä±ï¿½Å©ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½
-    void setoutPrice(const string &item, float price);
+    // ¸Ä±äÅ©³¡Æ·µÄÂô³ö¼Û¸ñ
+    void setoutPrice(const string& item, float price);
 };

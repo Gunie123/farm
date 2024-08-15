@@ -1,56 +1,49 @@
-#include <weather.h>
-class Soil
-{
+#include<weather.h>
+class Soil {
 protected:
-    float humidity = 0;                                     // ï¿½ï¿½ï¿½ï¿½Êªï¿½ï¿½
-    float temperature = 0;                                  // ï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½
-    float fertility = 0;                                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    float pesticideResidue = 0;                             // Å©Ò©ï¿½ï¿½ï¿½ï¿½
-    int id;                                                 // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
-    virtual void weather(const class Weather &weather) = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    virtual void applyFertilizer(int Fertilize) = 0;        // Ê©ï¿½Ã»ï¿½ï¿½ï¿½
-    virtual void applyPesticide(int Pesticide) = 0;         // ï¿½ï¿½Å©Ò©
-    virtual void irrigate(int water) = 0;                   // ï¿½ï¿½ï¿½
-    virtual void mulch(int time) = 0;                       // ï¿½ï¿½ï¿½Çµï¿½Ä¤
+    float humidity = 0;  //ÍÁÈÀÊª¶È
+    float temperature = 0; //ÍÁÈÀÎÂ¶È
+    float fertility = 0;  //ÍÁÈÀ·ÊÁ¦
+    float pesticideResidue = 0;  //Å©Ò©²ĞÁô
+    int id;   //ÍÁÈÀµÄid
+    virtual void weather(const class Weather& weather) = 0;   //¸ù¾İÌìÆøĞŞ¸ÄÍÁÈÀµÄÏà¹ØÊı¾İ
+    virtual void applyFertilizer(int Fertilize) = 0;  //Ê©ÓÃ»¯·Ê
+    virtual void applyPesticide(int Pesticide) = 0;  //ÅçÅ©Ò©
+    virtual void irrigate(int water) = 0;   //¹à¸È
+    virtual void mulch(int time) = 0;     //¸²¸ÇµØÄ¤
 
 public:
     Soil();
     virtual ~Soil() = default;
-    // ï¿½ï¿½È¡ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
-    float getHumidity() const
-    {
+    //»ñÈ¡Ïà¹Ø±äÁ¿µÄÖµ
+    float getHumidity() const {
         return humidity;
     }
 
-    float getTemperature() const
-    {
+    float getTemperature() const {
         return temperature;
     }
 
-    float getFertility() const
-    {
+    float getFertility() const {
         return fertility;
     }
 
-    float getPesticideResidue() const
-    {
+    float getPesticideResidue() const {
         return pesticideResidue;
     }
 
-    int getId() const
-    {
+    int getId() const {
         return id;
     }
 };
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-class ClaySoil : public Soil
-{
+//¾ßÌåµÄÅÉÉúÀà
+class ClaySoil : public Soil {
 public:
     ClaySoil() {}
     ~ClaySoil() override {}
 
-    void weather(const Weather &weather);
+    void weather(const Weather& weather);
 
     void applyFertilizer(int Fertilize);
 
@@ -60,3 +53,4 @@ public:
 
     void mulch(int time);
 };
+
